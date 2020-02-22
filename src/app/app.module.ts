@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { AddProfileComponent } from './add-profile/add-profile.component';
 import { AllProfilesComponent } from './all-profiles/all-profiles.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddCasComponent } from './add-cas/add-cas.component';
+import { AllCasComponent } from './all-cas/all-cas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddProfileComponent,
-    AllProfilesComponent
+    AllProfilesComponent,
+    AddCasComponent,
+    AllCasComponent
   ],
   imports: [
     BrowserModule,

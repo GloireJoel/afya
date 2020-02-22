@@ -1,0 +1,24 @@
+<div>
+     <form [fromGroup]='addCasForm' (ngSubmit)='saveCas'>
+         <div class="row">
+             <div class="form-group col-ms-6">
+                <label for="dateSymptome"> debut des symtomptomes</label>
+                 <input type="date" formControlName="dateSymptome">
+             </div>
+             <div class="form-group col-ms-6">
+                <label for="agePatient"> quel est votre age</label>
+                <input type="number" formControlName="agePatient">
+             </div>
+             <div class="form-group clo-ms-6">
+                <label for="poidsPatient"> quel est votre poids</label>
+                <input type="number" formControlName="poidsPatient">
+             </div>
+             <div class="form-group clo-ms-6">
+                <label for="sumptomePatient"> ecrivez-nous votre problème</label>
+                <textarea type="text" formControlName="poidsPatient">
+             </div>
+             <button type="submit" class="btn btn-primary" [disabled]=" addCasForm.invalide || loading">Creer un
+                profile</button>
+         </div>
+     </form>
+</div>
