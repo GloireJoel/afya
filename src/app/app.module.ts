@@ -8,6 +8,8 @@ import { AllProfilesComponent } from './all-profiles/all-profiles.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddCasComponent } from './add-cas/add-cas.component';
 import { AllCasComponent } from './all-cas/all-cas.component';
+import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { AllCasComponent } from './all-cas/all-cas.component';
     AddProfileComponent,
     AllProfilesComponent,
     AddCasComponent,
-    AllCasComponent
+    AllCasComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

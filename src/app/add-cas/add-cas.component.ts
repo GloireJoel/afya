@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ProfileService } from '../services/profile.service';
 import { Router } from '@angular/router';
 import { CasService } from '../services/cas.service';
+
+
+
 
 @Component({
   selector: 'app-add-cas',
@@ -24,18 +26,19 @@ export class AddCasComponent implements OnInit {
   initCas(){
     this.addCasForm = this.frombuilder.group({
             dateSymptome: ['', [Validators.required]],
-            symptomePatient:['', [Validators.required]],
             poidsPatient:['', [Validators.required]],
             agePatient:['', [Validators.required]],
+            symptomePatient:['', [Validators.required]],
     })
     
   }
    saveCas(){
     const nomCas = {
       dateSymptome: this.addCasForm.get('dateSymptome').value,
-      symptomePatient: this.addCasForm.get('symptomePatient').value,
       poidsPatient: this.addCasForm.get('poidsPatient').value,
       agePatient: this.addCasForm.get('agePatient').value,
+      symptomePatient: this.addCasForm.get('symptomePatient').value,
+      
      };
      this.casService.createNewSaveCas(nomCas);
      this.router.navigate(['/all-cas']);

@@ -1,0 +1,24 @@
+<div>
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-3">
+              <form [formGroup]='signUp' (ngSubmit)='SavesignUp()'>
+                <div class="form-group col-md-6">
+                    <label for="InputMail"> adresse mail</label>
+                     <input type="email" class="form-control" formControlName="email" id="InputMail" placeholder="adresse mail">
+                 </div>
+                 <div class="form-group col-md-6">
+                     <label for="InputPassword"> mot  de passe</label>
+                     <input type="password" class="form-control" formControlName="password" id="InputPassword" placeholder=" mot de passe">
+                 </div>
+                 <button type="submit" class="btn btn-primary" [disabled]="signUp.invalid || loading">connexion</button>
+              </form>
+              
+        </div>
+        <div class="col-md-3">
+            
+        </div>
+    </div>
+</div>

@@ -89,7 +89,7 @@
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/assets/js/jquery-2.2.3.min.js",
-              "src/assets/js/easing.js",
+              "src/assets/js/easing.js"
             ]
           }
         },

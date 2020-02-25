@@ -32,7 +32,7 @@ export class CasService {
   }
   
   getCas() {
-    firebase.database().ref('/cas').on(
+    firebase.database().ref('/Cas').on(
       'value',
       (data: firebase.database.DataSnapshot) => {
         this.cas = data.val() ? data.val() : [];
