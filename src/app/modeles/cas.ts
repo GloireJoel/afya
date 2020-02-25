@@ -3,5 +3,6 @@ export class Cas {
      symptomePatient:string;
      poidsPatient: number;
      agePatient: number;
+     user_name: string;
 }
 

@@ -10,10 +10,7 @@ import * as firebase from 'firebase';
 export class CasService {
   public cas:Cas[] = [];
   public casSubject = new Subject<Cas[]>();
-  createNewSaveCas(nomCas: { dateSymptome: any; symptomePatient: any; poidsPatient: any; agePatient: any; }) {
-    throw new Error("Method not implemented.");
-  }
-
+  
   constructor() {
     this.getCas();
    };

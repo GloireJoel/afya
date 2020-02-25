@@ -5,7 +5,7 @@ import * as firebase from 'firebase';
   providedIn: 'root'
 })
 export class AuthService {
-
+   login: string;
   constructor() { }
 
   signUp(email: string, password: string) {
@@ -29,6 +29,7 @@ export class AuthService {
       (resolve, reject) => {
         firebase.auth().signInWithEmailAndPassword(email, password).then(
           () => {
+            this.login = email;
             resolve();
           },
           (error) => {

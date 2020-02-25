@@ -9,7 +9,6 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent implements OnInit {
-
   usersignIn: FormGroup;
   constructor(private formBuilder: FormBuilder,
      private authService:AuthService,
@@ -23,7 +22,7 @@ export class SigninComponent implements OnInit {
    {
       this.usersignIn = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]], 
     });
    }
    connexion()
@@ -31,6 +30,6 @@ export class SigninComponent implements OnInit {
     const email= this.usersignIn.get('email').value;
     const password= this.usersignIn.get('password').value;
     this.authService.signIn(email, password);
-    this.router.navigate(['all-cas']);
+    this.router.navigate(['add_cas']);
   }
 }

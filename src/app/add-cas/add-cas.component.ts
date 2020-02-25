@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CasService } from '../services/cas.service';
+import { AuthService } from '../services/auth.service';
 
 
 
@@ -16,7 +17,9 @@ export class AddCasComponent implements OnInit {
   loading= false;
   fileUrl: string ='';
   loaded = false;
-  constructor( private frombuilder:FormBuilder, private casService:CasService,
+  constructor( private frombuilder:FormBuilder,
+              private authService: AuthService,
+               private casService:CasService,
                private router: Router){}
                 
   ngOnInit(){
@@ -38,9 +41,11 @@ export class AddCasComponent implements OnInit {
       poidsPatient: this.addCasForm.get('poidsPatient').value,
       agePatient: this.addCasForm.get('agePatient').value,
       symptomePatient: this.addCasForm.get('symptomePatient').value,
+      user_name : this.authService.login.toString()
       
      };
-     this.casService.createNewSaveCas(nomCas);
+     this.casService.createNewCas(nomCas);
+     console.log(nomCas.user_name);
      this.router.navigate(['/all-cas']);
    };
 //    onUploadFile(file: File) {
