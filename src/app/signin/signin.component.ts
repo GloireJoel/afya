@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, EmailValidator } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
@@ -30,6 +30,6 @@ export class SigninComponent implements OnInit {
     const email= this.usersignIn.get('email').value;
     const password= this.usersignIn.get('password').value;
     this.authService.signIn(email, password);
-    this.router.navigate(['add_cas']);
+    this.router.navigate(['add-profile']);
   }
 }

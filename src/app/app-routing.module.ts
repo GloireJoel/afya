@@ -10,12 +10,11 @@ import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
   {path:'add-profile', canActivate:[AuthGuardService], component:AddProfileComponent},
-  {path:'all-profiles',canActivate:[AuthGuardService], component: AllProfilesComponent},
+  {path:'all-profiles', canActivate:[AuthGuardService], component: AllProfilesComponent},
   {path:'add_cas', canActivate:[AuthGuardService], component:AddCasComponent},
-  {path:'all-cas',canActivate:[AuthGuardService], component:AllCasComponent},
+  {path:'all-cas', canActivate:[AuthGuardService],  component:AllCasComponent},
   {path:'signin', component: SigninComponent},
   {path:'signup', component: SignupComponent},
-
 ];
 
 @NgModule({

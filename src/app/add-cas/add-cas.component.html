@@ -43,22 +43,9 @@
                             <div class="main-menu  d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a class="active" href="index.html">home</a></li>
-                                        <li><a href="Department.html">Department</a></li>
-                                        <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="elements.html">elements</a></li>
-                                                <li><a href="about.html">about</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="Doctors.html">Doctors</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a class="active" routerLink="/signin">connexion</a></li>
+                                        <li><a class="active" routerLink="/signup"> creer un compte</a></li>
+                                        <li><a class="active" routerLink="/add_cas"> ajouter un cas</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -127,7 +114,8 @@
                                     <input type="date" class="form-control" formControlName="dateSymptome" id="InputdateSymptome" placeholder="Date de naissance">
                                 </div>
                               </div>
-                              <button type="submit" class="btn btn-primary" [disabled]="addCasForm.invalid || loading">ajouter les symptomes</button>
+                              <br>
+                              <button type="submit" class="boxed-btn3" [disabled]="addCasForm.invalid || loading" routerLink="/all-cas">ajouter les symptomes</button>
                         </form>
                     </div>
                     <div class="col-lg-3 offset-lg-1">

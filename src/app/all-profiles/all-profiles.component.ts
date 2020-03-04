@@ -15,7 +15,8 @@ export class AllProfilesComponent implements OnInit {
   profileSubscription: Subscription;
 
   constructor(private profileService: ProfileService,
-    private router: Router) { }
+    private router: Router) 
+    { }
 
   ngOnInit() {
     this.profileSubscription = this.profileService.profilelSubject.subscribe(

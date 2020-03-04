@@ -6,7 +6,6 @@ import { AuthService } from '../services/auth.service';
 
 
 
-
 @Component({
   selector: 'app-add-cas',
   templateUrl: './add-cas.component.html',
@@ -42,7 +41,6 @@ export class AddCasComponent implements OnInit {
       agePatient: this.addCasForm.get('agePatient').value,
       symptomePatient: this.addCasForm.get('symptomePatient').value,
       user_name : this.authService.login.toString()
-      
      };
      this.casService.createNewCas(nomCas);
      console.log(nomCas.user_name);

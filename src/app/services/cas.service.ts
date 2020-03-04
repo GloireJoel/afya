@@ -9,7 +9,7 @@ import * as firebase from 'firebase';
 })
 export class CasService {
   public cas:Cas[] = [];
-  public casSubject = new Subject<Cas[]>();
+  public casSubject = new Subject < Cas[]>();
   
   constructor() {
     this.getCas();
@@ -19,21 +19,43 @@ export class CasService {
   }
 
   saveCas() {
-    firebase.database().ref('/cas').set(this.cas)
+    firebase.database().ref('/Cas').set(this.cas)
   };
 
-  createNewCas(cas: Cas) {
-    this.cas.push(cas);
+  createNewCas(cass: Cas) {
+    this.cas.push(cass);
     this.saveCas();
     this.emettreCas();
   }
   
   getCas() {
     firebase.database().ref('/Cas').on(
-      'value',
+    'value',
       (data: firebase.database.DataSnapshot) => {
         this.cas = data.val() ? data.val() : [];
         this.emettreCas();
+      }
+    );
+  };
+
+  uploadFile(file: File) {
+    return new Promise(
+      (resolve, reject) => {
+        const almostUniqueFileName = Date.now().toString();
+        const upload = firebase.storage().ref()
+          .child('photo/' + almostUniqueFileName + file.name).put(file);
+        upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
+          () => {
+            console.log('Chargement…');
+          },
+          (error) => {
+            console.log('Erreur de chargement ! : ' + error.message);
+            reject();
+          },
+          () => {
+            resolve(upload.snapshot.ref.getDownloadURL());
+          }
+        );
       }
     );
   }
