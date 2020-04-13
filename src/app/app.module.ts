@@ -10,6 +10,10 @@ import { AddCasComponent } from './add-cas/add-cas.component';
 import { AllCasComponent } from './all-cas/all-cas.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { ProfileService } from './services/profile.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { CasService } from './services/cas.service';
+
 
 @NgModule({
   declarations: [
@@ -29,8 +33,13 @@ import { SignupComponent } from './signup/signup.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+
   ],
-  providers: [],
+  providers: [
+    AuthGuardService,
+    CasService,
+    ProfileService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

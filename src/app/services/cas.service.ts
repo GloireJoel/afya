@@ -8,35 +8,66 @@ import * as firebase from 'firebase';
   providedIn: 'root'
 })
 export class CasService {
-  public cas:Cas[] = [];
+  public cass:Cas[] = [];
   public casSubject = new Subject < Cas[]>();
   
   constructor() {
     this.getCas();
    };
-   emettreCas() {
-    this.casSubject.next(this.cas);
+   emittreCas() {
+    this.casSubject.next(this.cass);
   }
 
   saveCas() {
-    firebase.database().ref('/Cas').set(this.cas)
+    firebase.database().ref('cas/').set(this.cass)
   };
 
-  createNewCas(cass: Cas) {
-    this.cas.push(cass);
-    this.saveCas();
-    this.emettreCas();
-  }
-  
+ 
   getCas() {
-    firebase.database().ref('/Cas').on(
-    'value',
-      (data: firebase.database.DataSnapshot) => {
-        this.cas = data.val() ? data.val() : [];
-        this.emettreCas();
-      }
-    );
+    firebase.database().ref('cas')
+    .on('value', (data: firebase.database.DataSnapshot) => {
+        this.cass = data.val() ? data.val() : [];
+        this.emittreCas();
+      });
   };
+ 
+  getSingleCas(id: number)
+  {
+    return new Promise(
+          (resolve, reject)=>{
+            firebase.database().ref('path:/cas'+id).once('value').then(
+              (data)=>{
+                resolve(data.val());
+              }, (error) =>{
+                reject(error);
+              }
+            );
+          }
+       );
+  }
+//  creation d un cas
+
+  createNewCas(newCass: Cas) {
+    this.cass.push(newCass);
+    this.saveCas();
+    this.emittreCas();
+  };
+
+  // la methode de supression d un cas
+
+  removeCas(remCas: Cas)
+  {
+   const  casIndexRemove = this.cass.findIndex(
+     (casEl)=>{
+       if(casEl === remCas){
+         return true;
+       }
+     }
+   );
+    this.cass.splice(casIndexRemove, 1);
+    this.saveCas();
+    this.emittreCas();
+  }
 
   uploadFile(file: File) {
     return new Promise(

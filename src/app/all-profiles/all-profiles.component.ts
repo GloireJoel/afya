@@ -23,6 +23,6 @@ export class AllProfilesComponent implements OnInit {
       (data: Profile[]) => {
         this.profiles = data;
       }
-    )
+    );
   }
 }

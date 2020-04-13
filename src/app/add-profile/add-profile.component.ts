@@ -56,11 +56,6 @@ export class AddProfileComponent implements OnInit {
     this.profileService.createNewProfile(profile);
     this.router.navigate(['/all-profiles']);
   
-    // if(this.fileUrl && this.fileUrl !== '') {
-    //   profile.photo = this.fileUrl;
-    //   this.profileService.createNewProfile(profile);
-    //   this.router.navigate(['/all-profiles']);
-    // }
   }
 
   onUploadFile(file: File) {
